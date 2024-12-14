@@ -3,75 +3,75 @@
 # ------------------------------------------------------
 
 type Film {
-  director: String!
+  title: String!
   opening_crawl: String!
+  director: String!
   producer: String!
   release_date: String!
-  title: String!
-}
-
-type Planet {
-  climate: String!
-  diameter: Float!
-  gravity: String!
-  name: String!
-  orbital_period: Float!
-  population: Float!
-  rotation_period: Float!
-  surface_water: Float!
-  terrain: String!
-}
-
-type Query {
-  film(id: String!): Film!
-  films: [Film!]!
-  planet(id: String!): Planet!
-  planets: [Planet!]!
-  specie(id: String!): Species!
-  species: [Species!]!
-  starship(id: String!): Starship!
-  starships: [Starship!]!
-  vehicle(id: String!): Vehicle!
-  vehicles: [Vehicle!]!
 }
 
 type Species {
-  average_height: Float!
-  average_lifespan: String!
+  name: String!
   designation: String!
-  eye_colors: String!
+  average_height: Float!
+  skin_colors: String!
   hair_colors: String!
+  eye_colors: String!
+  average_lifespan: String!
   homeworld: String!
   language: String!
-  name: String!
-  skin_colors: String!
-}
-
-type Starship {
-  cargo_capacity: Float!
-  consumables: String!
-  cost_in_credits: Float!
-  crew: String!
-  hyperdrive_rating: Float!
-  length: Float!
-  manufacturer: String!
-  max_atmosphering_speed: Float!
-  model: String!
-  name: String!
-  passengers: Float!
-  starship_class: String!
 }
 
 type Vehicle {
+  name: String!
+  model: String!
+  manufacturer: String!
+  cost_in_credits: Float!
+  length: Float!
+  max_atmosphering_speed: Float!
+  crew: String!
+  passengers: Float!
   cargo_capacity: Float!
   consumables: String!
-  cost_in_credits: Float!
-  crew: String!
-  length: Float!
-  manufacturer: String!
-  max_atmosphering_speed: Float!
-  model: String!
-  name: String!
-  passengers: Float!
   vehicle_class: String!
+}
+
+type Starship {
+  name: String!
+  model: String!
+  manufacturer: String!
+  cost_in_credits: Float!
+  length: Float!
+  max_atmosphering_speed: Float!
+  crew: String!
+  passengers: Float!
+  cargo_capacity: Float!
+  consumables: String!
+  hyperdrive_rating: Float!
+  starship_class: String!
+}
+
+type Planet {
+  name: String!
+  rotation_period: Float!
+  orbital_period: Float!
+  diameter: Float!
+  climate: String!
+  gravity: String!
+  terrain: String!
+  surface_water: Float!
+  population: Float!
+}
+
+type Query {
+  films: [Film!]!
+  film(id: String!): Film!
+  species: [Species!]!
+  specie(id: String!): Species!
+  vehicles: [Vehicle!]!
+  vehicle(id: String!): Vehicle!
+  starships: [Starship!]!
+  starship(id: String!): Starship!
+  planets: [Planet!]!
+  planet(id: String!): Planet!
 }
