@@ -1,99 +1,211 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# API Documentation
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+This document provides detailed information about all the endpoints available in the API.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+---
 
-## Description
+## **Films Endpoints**
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+### **Get All Films**
+- **URL**: `/films`
+- **Method**: `GET`
+- **Description**: Retrieves a list of all films.
+- **Response Example**:
+  ```json
+  [
+    {
+      "title": "A New Hope",
+      "opening_crawl": "It is a period of civil war...",
+      "characters": "https://swapi.dev/api/people/1,https://swapi.dev/api/people/2",
+      "director": "George Lucas",
+      "producer": "Gary Kurtz, Rick McCallum",
+      "release_date": "1977-05-25"
+    }
+  ]
+  ```
 
-## Project setup
+### **Get Film by ID**
+- **URL**: `/films/{id}`
+- **Method**: `GET`
+- **Description**: Retrieves a specific film by its ID.
+- **Response Example**:
+  ```json
+  {
+    "title": "A New Hope",
+    "opening_crawl": "It is a period of civil war...",
+    "characters": "https://swapi.dev/api/people/1,https://swapi.dev/api/people/2",
+    "director": "George Lucas",
+    "producer": "Gary Kurtz, Rick McCallum",
+    "release_date": "1977-05-25"
+  }
+  ```
 
-```bash
-$ npm install
-```
+### **Get Most Frequent Character in a Film**
+- **GraphQL Query**:
+  ```graphql
+  {
+    film(id: "1") {
+      title
+      mostFrequentCharacter
+    }
+  }
+  ```
+- **Description**: Retrieves the name of the character that appears most frequently in the film's `opening_crawl`.
+- **Response Example**:
+  ```json
+  {
+    "title": "A New Hope",
+    "mostFrequentCharacter": "Luke Skywalker"
+  }
+  ```
 
-## Compile and run the project
+---
 
-```bash
-# development
-$ npm run start
+## **Species Endpoints**
 
-# watch mode
-$ npm run start:dev
+### **Get All Species**
+- **URL**: `/species`
+- **Method**: `GET`
+- **Description**: Retrieves a list of all species.
+- **Response Example**:
+  ```json
+  [
+    {
+      "name": "Human",
+      "classification": "mammal",
+      "designation": "sentient",
+      "average_height": "180",
+      "skin_colors": "caucasian, black, asian, hispanic",
+      "hair_colors": "blonde, brown, black, red",
+      "eye_colors": "brown, blue, green, hazel, grey, amber",
+      "average_lifespan": "120",
+      "language": "Galactic Basic"
+    }
+  ]
+  ```
 
-# production mode
-$ npm run start:prod
-```
+### **Get Species by ID**
+- **URL**: `/species/{id}`
+- **Method**: `GET`
+- **Description**: Retrieves a specific species by its ID.
+- **Response Example**:
+  ```json
+  {
+    "name": "Human",
+    "classification": "mammal",
+    "designation": "sentient",
+    "average_height": "180",
+    "skin_colors": "caucasian, black, asian, hispanic",
+    "hair_colors": "blonde, brown, black, red",
+    "eye_colors": "brown, blue, green, hazel, grey, amber",
+    "average_lifespan": "120",
+    "language": "Galactic Basic"
+  }
+  ```
 
-## Run tests
+---
 
-```bash
-# unit tests
-$ npm run test
+## **Vehicles Endpoints**
 
-# e2e tests
-$ npm run test:e2e
+### **Get All Vehicles**
+- **URL**: `/vehicles`
+- **Method**: `GET`
+- **Description**: Retrieves a list of all vehicles.
+- **Response Example**:
+  ```json
+  [
+    {
+      "name": "Sand Crawler",
+      "model": "Digger Crawler",
+      "manufacturer": "Corellia Mining Corporation",
+      "cost_in_credits": "150000",
+      "length": "36.8",
+      "max_atmosphering_speed": "30",
+      "crew": "46",
+      "passengers": "30",
+      "cargo_capacity": "50000",
+      "consumables": "2 months",
+      "vehicle_class": "wheeled"
+    }
+  ]
+  ```
 
-# test coverage
-$ npm run test:cov
-```
+### **Get Vehicle by ID**
+- **URL**: `/vehicles/{id}`
+- **Method**: `GET`
+- **Description**: Retrieves a specific vehicle by its ID.
+- **Response Example**:
+  ```json
+  {
+    "name": "Sand Crawler",
+    "model": "Digger Crawler",
+    "manufacturer": "Corellia Mining Corporation",
+    "cost_in_credits": "150000",
+    "length": "36.8",
+    "max_atmosphering_speed": "30",
+    "crew": "46",
+    "passengers": "30",
+    "cargo_capacity": "50000",
+    "consumables": "2 months",
+    "vehicle_class": "wheeled"
+  }
+  ```
 
-## Deployment
+---
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+## **Planets Endpoints**
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+### **Get All Planets**
+- **URL**: `/planets`
+- **Method**: `GET`
+- **Description**: Retrieves a list of all planets.
+- **Response Example**:
+  ```json
+  [
+    {
+      "name": "Tatooine",
+      "rotation_period": "23",
+      "orbital_period": "304",
+      "diameter": "10465",
+      "climate": "arid",
+      "gravity": "1 standard",
+      "terrain": "desert",
+      "surface_water": "1",
+      "population": "200000"
+    }
+  ]
+  ```
 
-```bash
-$ npm install -g mau
-$ mau deploy
-```
+### **Get Planet by ID**
+- **URL**: `/planets/{id}`
+- **Method**: `GET`
+- **Description**: Retrieves a specific planet by its ID.
+- **Response Example**:
+  ```json
+  {
+    "name": "Tatooine",
+    "rotation_period": "23",
+    "orbital_period": "304",
+    "diameter": "10465",
+    "climate": "arid",
+    "gravity": "1 standard",
+    "terrain": "desert",
+    "surface_water": "1",
+    "population": "200000"
+  }
+  ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+---
 
-## Resources
+## Notes
+- All endpoints are paginated where applicable.
+- The API returns data in JSON format.
+- Error responses follow standard HTTP status codes.
+  - `404`: Resource not found.
+  - `500`: Internal server error.
+  - `400`: Bad request.
 
-Check out a few resources that may come in handy when working with NestJS:
+---
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+This documentation covers all the available endpoints in the API for interacting with films, species, vehicles, starships, and planets.
 
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
