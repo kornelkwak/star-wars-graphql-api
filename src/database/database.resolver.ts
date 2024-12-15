@@ -1,10 +1,11 @@
-import { Resolver, Query, Args } from '@nestjs/graphql';
+import { Resolver, Query, Args, Parent, ResolveField } from '@nestjs/graphql';
 import { DatabaseService } from './database.service';
 import { Film } from 'src/types/film.type';
 import { Species } from 'src/types/species.type';
 import { Vehicle } from 'src/types/vehicle.type';
 import { Starship } from 'src/types/startship.type';
 import { Planet } from 'src/types/planet.type';
+import { WordCount } from 'src/types/wordCount.type';
 
 @Resolver()
 export class DatabaseResolver {

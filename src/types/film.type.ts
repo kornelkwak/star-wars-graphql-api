@@ -1,4 +1,5 @@
 import { ObjectType, Field } from '@nestjs/graphql';
+import { WordCount } from './wordCount.type';
 
 @ObjectType()
 export class Film {
@@ -19,4 +20,10 @@ export class Film {
 
   @Field()
   release_date: string;
+
+  @Field(() => [WordCount], { nullable: true })
+  wordsCount?: WordCount[];
+
+  @Field({ nullable: true })
+  mostFrequentCharacter?: string;
 }
