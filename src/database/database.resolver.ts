@@ -5,10 +5,10 @@ import { Species } from 'src/types/species.type';
 import { Vehicle } from 'src/types/vehicle.type';
 import { Starship } from 'src/types/startship.type';
 import { Planet } from 'src/types/planet.type';
-import { WordCount } from 'src/types/wordCount.type';
 
 @Resolver()
 export class DatabaseResolver {
+  [x: string]: any;
   constructor(private readonly databaseService: DatabaseService) {}
 
   @Query(() => [Film])

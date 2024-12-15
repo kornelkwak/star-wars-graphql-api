@@ -116,7 +116,7 @@ export class DatabaseService {
   }
 
   async findMostFrequentCharacter(film: Film): Promise<string> {
-    const characters = await this.fetchFilmCharacters(film.characters.split(','));
+    const characters = await this.fetchFilmCharacters(film.characters);
     const characterCounts = this.countCharacterOccurrences(film.opening_crawl, characters);
   
     const maxCount = Math.max(...Object.values(characterCounts));
