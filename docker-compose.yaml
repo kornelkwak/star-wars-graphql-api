@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000" # Mapowanie portów aplikacji
+    env_file:
+      - .env # Wczytaj zmienne z .env
+    depends_on:
+      - mongo # Zależność od usługi MongoDB
+
+  mongo:
+    image: mongo:5.0
+    container_name: mongo
+    ports:
+      - "27017:27017" # Mapowanie portów MongoDB
+    volumes:
+      - mongo-data:/data/db # Przechowywanie danych w woluminie
+
+volumes:
+  mongo-data:
