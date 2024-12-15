@@ -30,6 +30,9 @@ To run this project locally, you need:
 4. Run API on Docker Compose:
    ```bash
    docker-compose up --build
+5. Run tests
+   ```bash
+   npm run test
 
 # API Documentation
 
