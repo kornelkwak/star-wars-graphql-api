@@ -8,6 +8,29 @@ This API uses data from https://swapi.dev/api and saves it in database with 24h 
 - **MongoDB** with Mongoose
 - **Docker Compose**
 
+To run this project locally, you need:
+
+- Node.js
+- Docker
+- npm or yarn
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/username/todo-api.git
+   cd todo-api
+
+2. Install dependencies:
+   ```bash
+   npm install
+
+3. Configure environment variables in a .env file:
+   ```bash
+   MONGO_URI=<Your_MongoDB_URI>
+
+4. Run API on Docker Compose:
+   ```bash
+   docker-compose up --build
+
 # API Documentation
 
 This document provides detailed information about all the endpoints available in the API.
