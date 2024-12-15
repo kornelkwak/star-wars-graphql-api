@@ -1,3 +1,13 @@
+# Star Wars GraphQL API
+
+This API uses data from https://swapi.dev/api and saves it in database with 24h cache.
+
+## Technologies Used
+- **Node.js** (with TypeScript)
+- **Nest.js**
+- **MongoDB** with Mongoose
+- **Docker Compose**
+
 # API Documentation
 
 This document provides detailed information about all the endpoints available in the API.
@@ -56,6 +66,32 @@ This document provides detailed information about all the endpoints available in
   {
     "title": "A New Hope",
     "mostFrequentCharacter": "Luke Skywalker"
+  }
+  ```
+
+### **Get Word Count in Film's Opening Crawl**
+- **GraphQL Query**:
+  ```graphql
+  {
+    film(id: "1") {
+      title
+      wordsCount {
+        word
+        count
+      }
+    }
+  }
+  ```
+- **Description**: Retrieves the word count statistics for the `opening_crawl` of the film.
+- **Response Example**:
+  ```json
+  {
+    "title": "A New Hope",
+    "wordsCount": [
+      { "word": "It", "count": 2 },
+      { "word": "is", "count": 1 },
+      { "word": "a", "count": 1 }
+    ]
   }
   ```
 
