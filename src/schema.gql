@@ -5,6 +5,7 @@
 type Film {
   title: String!
   opening_crawl: String!
+  characters: String!
   director: String!
   producer: String!
   release_date: String!

@@ -17,4 +17,4 @@ export class Database {
 
 export const DatabaseSchema = SchemaFactory.createForClass(Database);
 
-DatabaseSchema.index({ createdAt: 1 }, { expireAfterSeconds: 24 * 60 * 60 }); // 24 godziny
+DatabaseSchema.index({ createdAt: 1 }, { expireAfterSeconds: 24 * 60 * 60 });

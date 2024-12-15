@@ -9,6 +9,9 @@ export class Film {
   opening_crawl: string;
 
   @Field()
+  characters: string;
+
+  @Field()
   director: string;
 
   @Field()
